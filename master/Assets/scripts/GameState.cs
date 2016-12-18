@@ -13,9 +13,95 @@ public class GameState : MonoBehaviour {
 	public GameObject charge7;
 	public GameObject charge8;
 
+	public int player0_charge;
+	public int player1_charge;
+	public int player2_charge;
+	public int player3_charge;
+	private int chargeGoal;
+
+	public GameObject player0char;
+	public GameObject player0mon;
+	public GameObject player1char;
+	public GameObject player1mon;
+	public GameObject player2char;
+	public GameObject player2mon;
+	public GameObject player3char;
+	public GameObject player3mon;
+
 	// Use this for initialization
 	void Start () {
-		firstCharge = Random.Range(1,8);
+		chargeGoal = 1;
+		SpawnCharge ();
+		ChargeReset ();
+
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		if (player0_charge == chargeGoal) {
+			ChargeReset ();
+			Destroy (GameObject.FindWithTag("player0"));
+			KillMonsters ();
+			Instantiate (player0mon);
+			if (!GameObject.FindWithTag ("player1")) {
+				Instantiate (player1char);
+			}
+			if (!GameObject.FindWithTag ("player2")) {
+				Instantiate (player2char);
+			}
+			if (!GameObject.FindWithTag ("player3")) {
+				Instantiate (player3char);
+			}
+		}
+		if (player1_charge == chargeGoal) {
+			ChargeReset ();
+			Destroy (GameObject.FindWithTag("player1"));
+			KillMonsters ();
+			Instantiate (player1mon);
+			if (!GameObject.FindWithTag ("player0")) {
+				Instantiate (player0char);
+			}
+			if (!GameObject.FindWithTag ("player2")) {
+				Instantiate (player2char);
+			}
+			if (!GameObject.FindWithTag ("player3")) {
+				Instantiate (player3char);
+			}
+		}
+		if (player2_charge == chargeGoal) {
+			ChargeReset ();
+			Destroy (GameObject.FindWithTag("player2"));
+			KillMonsters ();
+			Instantiate (player2mon);
+			if (!GameObject.FindWithTag ("player0")) {
+				Instantiate (player0char);
+			}
+			if (!GameObject.FindWithTag ("player1")) {
+				Instantiate (player1char);
+			}
+			if (!GameObject.FindWithTag ("player3")) {
+				Instantiate (player3char);
+			}
+		}
+		if (player3_charge == chargeGoal) {
+			ChargeReset ();
+			Destroy (GameObject.FindWithTag("player3"));
+			KillMonsters ();
+			Instantiate (player3mon);
+			if (!GameObject.FindWithTag ("player0")) {
+				Instantiate (player0char);
+			}
+			if (!GameObject.FindWithTag ("player1")) {
+				Instantiate (player1char);
+			}
+			if (!GameObject.FindWithTag ("player2")) {
+				Instantiate (player2char);
+			}
+		}
+	}
+
+	public void SpawnCharge(){
+		firstCharge = Random.Range(1,9);
 		if (firstCharge == 1) {
 			Instantiate (charge1);
 		}
@@ -40,11 +126,19 @@ public class GameState : MonoBehaviour {
 		if (firstCharge == 8) {
 			Instantiate (charge8);
 		}
-
 	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public void ChargeReset(){
+		player0_charge = 0;
+		player1_charge = 0;
+		player2_charge = 0;
+		player3_charge = 0;
+	}
+
+	public void KillMonsters(){
+		Destroy (GameObject.FindWithTag("monster0"));
+		Destroy (GameObject.FindWithTag("monster1"));
+		Destroy (GameObject.FindWithTag("monster2"));
+		Destroy (GameObject.FindWithTag("monster3"));
 	}
 }

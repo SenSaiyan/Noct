@@ -9,6 +9,8 @@ public class PlayerCollisions : MonoBehaviour {
 	public AudioClip clip;
 	public AudioClip clip2;
 
+	private PlayerMove msBoost;
+
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +22,8 @@ public class PlayerCollisions : MonoBehaviour {
 
 		GameObject clip2 = GameObject.Find("monstercharge (1)");
 		audio2 = clip2.GetComponent<AudioSource>();
+
+		msBoost = gameObject.GetComponent<PlayerMove>();
 	}
 	
 	// Update is called once per frame
@@ -61,24 +65,28 @@ public class PlayerCollisions : MonoBehaviour {
 			gameState.SpawnCharge();
 			Destroy(other.gameObject);
 			audio2.Play ();
+			msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/5;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "monster1")
 		{
 			gameState.SpawnCharge();
 			Destroy(other.gameObject);
 			audio2.Play ();
+			msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/5;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "monster2")
 		{
 			gameState.SpawnCharge();
 			Destroy(other.gameObject);
 			audio2.Play ();
+			msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/5;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "monster3")
 		{
 			gameState.SpawnCharge();
 			Destroy(other.gameObject);
 			audio2.Play ();
+			msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/5;
 		}
 			
 	}

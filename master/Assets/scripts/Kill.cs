@@ -5,6 +5,7 @@ public class Kill : MonoBehaviour {
 
 	public AudioSource audio;
 	public int deaths;
+	private PlayerMove msBoost;
 
 	public GameState gameState;
 
@@ -20,8 +21,10 @@ public class Kill : MonoBehaviour {
 
 		GameObject clip = GameObject.Find("elimination (1)");
 		audio = clip.GetComponent<AudioSource>();
+
+		msBoost = gameObject.GetComponent<PlayerMove>();
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 //			Instantiate (spriteFab1);
@@ -38,6 +41,7 @@ public class Kill : MonoBehaviour {
 				audio.Play ();
 				Instantiate (gameState.player0char);
 				gameState.player0_score += 1;
+				msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 			}
 			if(other.gameObject.tag == "player1")
 			{
@@ -45,6 +49,7 @@ public class Kill : MonoBehaviour {
 				audio.Play ();
 				Instantiate (gameState.player1char);
 				gameState.player0_score += 1;
+				msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 			}
 			if(other.gameObject.tag == "player2")
 			{
@@ -52,6 +57,7 @@ public class Kill : MonoBehaviour {
 				audio.Play ();
 				Instantiate (gameState.player2char);
 				gameState.player0_score += 1;
+				msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 			}
 			if(other.gameObject.tag == "player3")
 			{
@@ -59,46 +65,49 @@ public class Kill : MonoBehaviour {
 				audio.Play ();
 				Instantiate (gameState.player3char);
 				gameState.player0_score += 1;
+				msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 			}
 		}
 
 		if (gameObject.tag == "monster1") {
-			if(other.gameObject.tag == "player0")
-			{
-				Destroy(other.gameObject);
+			if (other.gameObject.tag == "player0") {
+				Destroy (other.gameObject);
 				audio.Play ();
 				Instantiate (gameState.player0char);
 				gameState.player1_score += 1;
+				msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed / 20;
 			}
-			if(other.gameObject.tag == "player1")
-			{
-				Destroy(other.gameObject);
+			if (other.gameObject.tag == "player1") {
+				Destroy (other.gameObject);
 				audio.Play ();
 				Instantiate (gameState.player1char);
 				gameState.player1_score += 1;
+				msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed / 20;
 			}
-			if(other.gameObject.tag == "player2")
-			{
-				Destroy(other.gameObject);
+			if (other.gameObject.tag == "player2") {
+				Destroy (other.gameObject);
 				audio.Play ();
 				Instantiate (gameState.player2char);
 				gameState.player1_score += 1;
+				msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed / 20;
 			}
-			if(other.gameObject.tag == "player3")
-			{
-				Destroy(other.gameObject);
+			if (other.gameObject.tag == "player3") {
+				Destroy (other.gameObject);
 				audio.Play ();
 				Instantiate (gameState.player3char);
 				gameState.player1_score += 1;
+				msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed / 20;
 			}
+		}
 
-			if (gameObject.tag == "monster2") {
+		if (gameObject.tag == "monster2") {
 				if(other.gameObject.tag == "player0")
 				{
 					Destroy(other.gameObject);
 					audio.Play ();
 					Instantiate (gameState.player0char);
 					gameState.player2_score += 1;
+					msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 				}
 				if(other.gameObject.tag == "player1")
 				{
@@ -106,6 +115,7 @@ public class Kill : MonoBehaviour {
 					audio.Play ();
 					Instantiate (gameState.player1char);
 					gameState.player2_score += 1;
+					msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 				}
 				if(other.gameObject.tag == "player2")
 				{
@@ -113,6 +123,7 @@ public class Kill : MonoBehaviour {
 					audio.Play ();
 					Instantiate (gameState.player2char);
 					gameState.player2_score += 1;
+					msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 				}
 				if(other.gameObject.tag == "player3")
 				{
@@ -120,6 +131,7 @@ public class Kill : MonoBehaviour {
 					audio.Play ();
 					Instantiate (gameState.player3char);
 					gameState.player2_score += 1;
+					msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 				}
 			}
 
@@ -130,6 +142,7 @@ public class Kill : MonoBehaviour {
 					audio.Play ();
 					Instantiate (gameState.player0char);
 					gameState.player3_score += 1;
+					msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 				}
 				if(other.gameObject.tag == "player1")
 				{
@@ -137,6 +150,7 @@ public class Kill : MonoBehaviour {
 					audio.Play ();
 					Instantiate (gameState.player1char);
 					gameState.player3_score += 1;
+					msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 				}
 				if(other.gameObject.tag == "player2")
 				{
@@ -144,6 +158,7 @@ public class Kill : MonoBehaviour {
 					audio.Play ();
 					Instantiate (gameState.player2char);
 					gameState.player3_score += 1;
+					msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 				}
 				if(other.gameObject.tag == "player3")
 				{
@@ -151,8 +166,9 @@ public class Kill : MonoBehaviour {
 					audio.Play ();
 					Instantiate (gameState.player3char);
 					gameState.player3_score += 1;
+					msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/20;
 				}
 			}
 		}
 	}
-}
+

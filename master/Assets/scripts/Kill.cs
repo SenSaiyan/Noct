@@ -31,31 +31,128 @@ public class Kill : MonoBehaviour {
 		}
 
 	void OnTriggerEnter(Collider other) {
-		//if (gameObject.tag == "monster0") {
+		if (gameObject.tag == "monster0") {
 			if(other.gameObject.tag == "player0")
 			{
 				Destroy(other.gameObject);
 				audio.Play ();
 				Instantiate (gameState.player0char);
+				gameState.player0_score += 1;
 			}
 			if(other.gameObject.tag == "player1")
 			{
 				Destroy(other.gameObject);
 				audio.Play ();
 				Instantiate (gameState.player1char);
+				gameState.player0_score += 1;
 			}
 			if(other.gameObject.tag == "player2")
 			{
 				Destroy(other.gameObject);
 				audio.Play ();
 				Instantiate (gameState.player2char);
+				gameState.player0_score += 1;
 			}
 			if(other.gameObject.tag == "player3")
 			{
 				Destroy(other.gameObject);
 				audio.Play ();
 				Instantiate (gameState.player3char);
+				gameState.player0_score += 1;
 			}
-		//}
+		}
+
+		if (gameObject.tag == "monster1") {
+			if(other.gameObject.tag == "player0")
+			{
+				Destroy(other.gameObject);
+				audio.Play ();
+				Instantiate (gameState.player0char);
+				gameState.player1_score += 1;
+			}
+			if(other.gameObject.tag == "player1")
+			{
+				Destroy(other.gameObject);
+				audio.Play ();
+				Instantiate (gameState.player1char);
+				gameState.player1_score += 1;
+			}
+			if(other.gameObject.tag == "player2")
+			{
+				Destroy(other.gameObject);
+				audio.Play ();
+				Instantiate (gameState.player2char);
+				gameState.player1_score += 1;
+			}
+			if(other.gameObject.tag == "player3")
+			{
+				Destroy(other.gameObject);
+				audio.Play ();
+				Instantiate (gameState.player3char);
+				gameState.player1_score += 1;
+			}
+
+			if (gameObject.tag == "monster2") {
+				if(other.gameObject.tag == "player0")
+				{
+					Destroy(other.gameObject);
+					audio.Play ();
+					Instantiate (gameState.player0char);
+					gameState.player2_score += 1;
+				}
+				if(other.gameObject.tag == "player1")
+				{
+					Destroy(other.gameObject);
+					audio.Play ();
+					Instantiate (gameState.player1char);
+					gameState.player2_score += 1;
+				}
+				if(other.gameObject.tag == "player2")
+				{
+					Destroy(other.gameObject);
+					audio.Play ();
+					Instantiate (gameState.player2char);
+					gameState.player2_score += 1;
+				}
+				if(other.gameObject.tag == "player3")
+				{
+					Destroy(other.gameObject);
+					audio.Play ();
+					Instantiate (gameState.player3char);
+					gameState.player2_score += 1;
+				}
+			}
+
+			if (gameObject.tag == "monster3") {
+				if(other.gameObject.tag == "player0")
+				{
+					Destroy(other.gameObject);
+					audio.Play ();
+					Instantiate (gameState.player0char);
+					gameState.player3_score += 1;
+				}
+				if(other.gameObject.tag == "player1")
+				{
+					Destroy(other.gameObject);
+					audio.Play ();
+					Instantiate (gameState.player1char);
+					gameState.player3_score += 1;
+				}
+				if(other.gameObject.tag == "player2")
+				{
+					Destroy(other.gameObject);
+					audio.Play ();
+					Instantiate (gameState.player2char);
+					gameState.player3_score += 1;
+				}
+				if(other.gameObject.tag == "player3")
+				{
+					Destroy(other.gameObject);
+					audio.Play ();
+					Instantiate (gameState.player3char);
+					gameState.player3_score += 1;
+				}
+			}
+		}
 	}
 }

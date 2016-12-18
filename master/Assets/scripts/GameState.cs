@@ -19,6 +19,12 @@ public class GameState : MonoBehaviour {
 	public int player3_charge;
 	private int chargeGoal;
 
+	public int player0_score;
+	public int player1_score;
+	public int player2_score;
+	public int player3_score;
+	private int scoreLimit;
+
 	public GameObject player0char;
 	public GameObject player0mon;
 	public GameObject player1char;
@@ -30,9 +36,15 @@ public class GameState : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		chargeGoal = 1;
+		chargeGoal = 3;
+		scoreLimit = 15;
 		SpawnCharge ();
 		ChargeReset ();
+
+		player0_score = 0;
+		player1_score = 0;
+		player2_score = 0;
+		player3_score = 0;
 
 	}
 	

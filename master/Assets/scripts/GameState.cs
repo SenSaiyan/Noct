@@ -50,7 +50,7 @@ public class GameState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (player0_charge == chargeGoal) {
+		if (player0_charge >= chargeGoal) {
 			ChargeReset ();
 			Destroy (GameObject.FindWithTag("player0"));
 			KillMonsters ();
@@ -65,7 +65,7 @@ public class GameState : MonoBehaviour {
 				Instantiate (player3char);
 			}
 		}
-		if (player1_charge == chargeGoal) {
+		if (player1_charge >= chargeGoal) {
 			ChargeReset ();
 			Destroy (GameObject.FindWithTag("player1"));
 			KillMonsters ();
@@ -80,7 +80,7 @@ public class GameState : MonoBehaviour {
 				Instantiate (player3char);
 			}
 		}
-		if (player2_charge == chargeGoal) {
+		if (player2_charge >= chargeGoal) {
 			ChargeReset ();
 			Destroy (GameObject.FindWithTag("player2"));
 			KillMonsters ();
@@ -95,7 +95,7 @@ public class GameState : MonoBehaviour {
 				Instantiate (player3char);
 			}
 		}
-		if (player3_charge == chargeGoal) {
+		if (player3_charge >= chargeGoal) {
 			ChargeReset ();
 			Destroy (GameObject.FindWithTag("player3"));
 			KillMonsters ();

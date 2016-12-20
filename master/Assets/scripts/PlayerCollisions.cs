@@ -34,57 +34,65 @@ public class PlayerCollisions : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "player0")
 		{
-			gameState.SpawnCharge();
+			
 			Destroy(other.gameObject);
+			gameState.SpawnCharge();
 			audio.Play ();
 			gameState.player0_charge += 1;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "player1")
 		{
-			gameState.SpawnCharge();
+			
 			Destroy(other.gameObject);
+			gameState.SpawnCharge();
 			audio.Play ();
 			gameState.player1_charge += 1;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "player2")
 		{
-			gameState.SpawnCharge();
+			
 			Destroy(other.gameObject);
+			gameState.SpawnCharge();
 			audio.Play ();
 			gameState.player2_charge += 1;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "player3")
 		{
-			gameState.SpawnCharge();
+			
 			Destroy(other.gameObject);
+			gameState.SpawnCharge();
 			audio.Play ();
 			gameState.player3_charge += 1;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "monster0")
 		{
-			gameState.SpawnCharge();
+			
 			Destroy(other.gameObject);
+			gameState.SpawnCharge();
 			audio2.Play ();
 			msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/5;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "monster1")
 		{
-			gameState.SpawnCharge();
+			
 			Destroy(other.gameObject);
+			gameState.SpawnCharge();
 			audio2.Play ();
 			msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/5;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "monster2")
 		{
-			gameState.SpawnCharge();
+			
 			Destroy(other.gameObject);
+			gameState.SpawnCharge();
 			audio2.Play ();
 			msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/5;
 		}
 		if(other.gameObject.tag == "Charge" && gameObject.tag == "monster3")
 		{
-			gameState.SpawnCharge();
+			
 			Destroy(other.gameObject);
+			gameState.SpawnCharge();
 			audio2.Play ();
 			msBoost.moveSpeed = msBoost.moveSpeed + msBoost.moveSpeed/5;
 		}

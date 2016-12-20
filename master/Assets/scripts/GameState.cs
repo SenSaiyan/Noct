@@ -34,11 +34,13 @@ public class GameState : MonoBehaviour {
 	public GameObject player3char;
 	public GameObject player3mon;
 
+	public GameObject chargeExists;
 	// Use this for initialization
+
 	void Start () {
+		//SpawnCharge ();
 		chargeGoal = 3;
-		scoreLimit = 15;
-		SpawnCharge ();
+		scoreLimit = 25;
 		ChargeReset ();
 
 		player0_score = 0;
@@ -50,6 +52,20 @@ public class GameState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		SpawnCharge ();
+		if (player0_score >= scoreLimit) {
+			LoadP0wins();
+		}
+		if (player1_score >= scoreLimit) {
+			LoadP1wins();
+		}
+		if (player2_score >= scoreLimit) {
+			LoadP2wins();
+		}
+		if (player3_score >= scoreLimit) {
+			LoadP3wins();
+		}
+
 		if (player0_charge >= chargeGoal) {
 			ChargeReset ();
 			Destroy (GameObject.FindWithTag("player0"));
@@ -110,32 +126,34 @@ public class GameState : MonoBehaviour {
 				Instantiate (player2char);
 			}
 		}
+		chargeExists = GameObject.FindWithTag("Charge");
+		Debug.Log (chargeExists);
 	}
 
 	public void SpawnCharge(){
 		firstCharge = Random.Range(1,9);
-		if (firstCharge == 1) {
+		if ((firstCharge == 1) && (chargeExists == null)) {
 			Instantiate (charge1);
 		}
-		if (firstCharge == 2) {
+		if ((firstCharge == 2) && (chargeExists == null)) {
 			Instantiate (charge2);
 		}
-		if (firstCharge == 3) {
+		if ((firstCharge == 3) && (chargeExists == null)) {
 			Instantiate (charge3);
 		}
-		if (firstCharge == 4) {
+		if ((firstCharge == 4) && (chargeExists == null)) {
 			Instantiate (charge4);
 		}
-		if (firstCharge == 5) {
+		if ((firstCharge == 5) && (chargeExists == null)) {
 			Instantiate (charge5);
 		}
-		if (firstCharge == 6) {
+		if ((firstCharge == 6) && (chargeExists == null)) {
 			Instantiate (charge6);
 		}
-		if (firstCharge == 7) {
+		if ((firstCharge == 7) && (chargeExists == null)) {
 			Instantiate (charge7);
 		}
-		if (firstCharge == 8) {
+		if ((firstCharge == 8) && (chargeExists == null)) {
 			Instantiate (charge8);
 		}
 	}
@@ -152,5 +170,18 @@ public class GameState : MonoBehaviour {
 		Destroy (GameObject.FindWithTag("monster1"));
 		Destroy (GameObject.FindWithTag("monster2"));
 		Destroy (GameObject.FindWithTag("monster3"));
+	}
+
+	public void LoadP0wins(){
+		Application.LoadLevel ("EndP1");
+	}
+	public void LoadP1wins(){
+		Application.LoadLevel ("EndP2");
+	}
+	public void LoadP2wins(){
+		Application.LoadLevel ("EndP3");
+	}
+	public void LoadP3wins(){
+		Application.LoadLevel ("EndP4");
 	}
 }

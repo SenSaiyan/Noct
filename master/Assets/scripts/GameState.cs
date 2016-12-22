@@ -40,7 +40,7 @@ public class GameState : MonoBehaviour {
 	void Start () {
 		//SpawnCharge ();
 		chargeGoal = 3;
-		scoreLimit = 25;
+		scoreLimit = 15;
 		ChargeReset ();
 
 		player0_score = 0;

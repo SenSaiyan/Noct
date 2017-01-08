@@ -1,2 +1,2 @@
-#Night of Unlucky
+#Noct
 Become the abomination and kill your friends for points. In the dark.
